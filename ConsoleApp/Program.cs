@@ -47,3 +47,52 @@ Console.WriteLine(output);
 
 output = $"{helloVariable} {name}!"; //łączenie wykorzystujące interpolację (string interpolowany)
 Console.WriteLine(output);
+
+//Lenth - właściwość (brak nawiasów odróżnia ją od metody) - przetrzymuje dane o długości stringa
+output = $"Długość dotychczasowej zawartości zmiennej \"output\" to \t {output.Length}"; //ukośnik opadający aktywuje znak specjalny/zastrzeżony
+Console.WriteLine(output);
+
+output = $"Długość dotychczasowej zawartości zmiennej output to {output.Count()}";
+Console.WriteLine(output);
+
+//stringów nie możemy edytować, żeby zmienić wartość należy wytworzyć nowego stringa i przypisać pod zmienną
+//zastąpienie części znaków - czułe na wielkość liter
+output = output.Replace("dotychczasowej", "tymczasowej");
+Console.WriteLine(output);
+//zastąpienie części znaków - niezależne od wielkości liter
+output = output.Replace("Dotychczasowej", "tymczasowej", StringComparison.InvariantCultureIgnoreCase);
+Console.WriteLine(output);
+
+//wycinanie "podstringów"
+output = output.Substring(0, output.Length - 6 - 2); //obliczamy ile znaków usunąć z końca
+Console.WriteLine(output);
+
+string someString = "ala ma kota";
+string anotherString = "Ala ma kota";
+
+bool isEqual;
+
+//= operator przypisania
+// == - operator porównania, dla string działa tak samo jak Equals
+isEqual = someString == anotherString;
+Console.WriteLine(isEqual);
+
+//Equals porównuje czy obiekty są tym samym obiektem. Produktem metody jest zmienna bool (prawda/fałsz)
+isEqual = someString.Equals(anotherString);
+Console.WriteLine(isEqual);
+
+//porównanie z ignorowaniem wielkości znaków
+isEqual = someString.Equals(anotherString, StringComparison.InvariantCultureIgnoreCase);
+Console.WriteLine(isEqual);
+
+
+name = Console.ReadLine();
+
+//usuwanie białych znaków z początku i/lub końca
+Console.WriteLine($"*{name}*");
+Console.WriteLine($"*{name.Trim()}*");
+Console.WriteLine($"*{name.TrimEnd()}*");
+Console.WriteLine($"*{name.TrimStart()}*");
+
+//usuwanie wskazanego znaku przez sparametryzowanie metody wskazanym znakiem
+Console.WriteLine($"*{name.Trim().Trim('ł')}*");
