@@ -75,3 +75,21 @@ Console.WriteLine($"{9:0#}");
 Console.WriteLine($"{19:0#}");
 
 Console.WriteLine($"{1f/3f:f2}");
+
+
+Console.WriteLine("Podaj pierwszy bok prostokąta:");
+string input1 = Console.ReadLine();
+Console.WriteLine("Podaj drugi bok prostokąta:");
+string input2 = Console.ReadLine();
+
+//parsowanie/konwersja string na int
+//int sideA = int.Parse(input1);
+//int sideB = int.Parse(input2);
+
+//parsowanie/konwersja string na float
+float sideA = float.Parse(input1);
+float sideB = float.Parse(input2);
+
+float area = sideA * sideB;
+
+Console.WriteLine($"Pole powierzchni to {area}");
