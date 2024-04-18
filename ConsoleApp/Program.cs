@@ -10,51 +10,48 @@ Demos demo = new Demos();
 //demo.Switch();
 
 
-bool stop = false;
+//I - inicjalizacja pętli - wykonuje się tylko raz na początku
+//II - warunek kontynuacji pętli - wykonuje się przed każdym wykonaniem ciała
+//III - ciało pętli
+//IV - akcja po wykonaniu ciała - najczęsciej inkrementacja licznika
+//for(I ; II ; IV)
+//{ III }
 
-//while - pętla która trwa gdy jej parametr jest true, parametr jest sprawdzany przed każdym wejściem do pętli
-// jeśli przy pierwszym wejściu parametr będzie false, to pętla się nigdy nie wykona
-
-while (!stop)
-//while(true) = pętla nieskończona
+for (int i = 0; i < 5; i++ /*i = i + 1*/)
 {
-
-    Console.WriteLine("Co chcesz zrobić?");
-    string operation = Console.ReadLine();
-
-    switch (operation)
-    {
-        case "exit":
-            stop = true;
-            break;
-        default:
-            Console.WriteLine(operation);
-            break;
-    }
-
+    Console.WriteLine(i);
 }
 
 
-
-bool finish;
-//do-while - sprawdza warunek po wykonaniu ciała - zapewnia, że zostanie ono wykonane co najmniej raz
-//pozwala to wyeliminować inicjalizację zminnych przed wejściem do pętli
-do
+//pętla nieskończona - odpowiednik while(true)
+/*for(; ; )
 {
-    Console.WriteLine("Co chcesz zrobić?");
-    string operation = Console.ReadLine();
+    Console.Write("*");
+}*/
 
-    switch (operation)
-    {
-        case "exit":
-            finish = true;
-            break;
-        default:
-            finish = false;
-            Console.WriteLine(operation);
-            break;
-    }
-} while(!finish);
+int value = 5;
+for (; value > 0; value--/*value = value - 1*/)
+{
+    Console.WriteLine( value );
+}
+Console.WriteLine("---");
+value = 0;
+for (; value < 5;)
+{
+    Console.WriteLine(++value); //wartość wzrasta przed wyświetleniem
+}
+
+value = 0;
+for (; value < 5;)
+{
+    Console.WriteLine(value++); //wartość wzrasta po wyświetleniu
+}
 
 
-Console.WriteLine(  );
+string input = Console.ReadLine();
+string[] splittedInput = input.Split();
+
+for (int i = splittedInput.Length - 1; i >= 0; i--)
+{
+    Console.WriteLine(splittedInput[i]);
+}
