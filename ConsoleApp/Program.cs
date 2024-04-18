@@ -1,95 +1,48 @@
 ﻿using ConsoleApp;
 
-//StringDemo demo = new StringDemo();
-//demo.Run();
+//Demos demo = new Demos();
+//demo.Strings();
+//demo.Numbers();
 
 
-int a = 11;
-int b = 4;
-
-int c = a + b;
-Console.WriteLine($"{a} + {b} = {c}");
-c = a - b;
-Console.WriteLine($"{a} - {b} = {c}");
-c = a * b;
-Console.WriteLine($"{a} * {b} = {c}");
-c = a / b; // część dziesiętna jest ucięta
-Console.WriteLine($"{a} / {b} = {c}");
-c = a % b; //reszta z dzielenia
-Console.WriteLine($"{a} % {b} = {c}");
+int a = 5;
+int b = 10;
+int c = 15;
 
 
+//deklaracja tablicy przechowującej dane typu int
+//[] - tablica
+int[] array;
 
-float aa = 11;
-float bb = 4.0f;
-float cc = aa + bb;
-Console.WriteLine($"{aa} + {bb} = {cc}");
-cc = aa - bb;
-Console.WriteLine($"{aa} - {bb} = {cc}");
-cc = aa * bb;
-Console.WriteLine($"{aa} * {bb} = {cc}");
-cc = aa / bb;
-Console.WriteLine($"{aa} / {bb} = {cc}");
+//inicjalizujemy zmienną nową tablicą typu int o rozmiarze 3
+//tablica wypełniana jest wartościami domyślnymi zadeklarowanego typu (dla int jest to 0)
+array = new int[3];
 
-//aby wynik był poprawny przy dzieleniu dwóch intów należy jako pierwszą operację "przekształcić" int na float
-//możemy to zrobić poprzez wykonanie jako pierwszą operację mnożenia przez typ o większej prezycji
-cc = 1f * a / b;
-Console.WriteLine($"{a} / {b} = {cc}");
+Console.WriteLine(array[0]);
+Console.WriteLine(array[1]);
+Console.WriteLine(array[2]);
 
-//lub poprzez rzutowanie (czyli potraktowanie jednego typu jako inny (podany w nawiasie))
-cc = (float)a / b;
-Console.WriteLine($"{a} / {b} = {cc}");
+//tablice są indeksowane od 0 (minimalny indeks)
+//odwołujemy się do pierwszgo elemntu tablicy, czyli pod indeks 0
+array[0] = a;
+array[1] = 10;
+//maksymalny indeks tablicy to rozmiar minus 1 (3 - 1 = 2)
+//array[2] = c;
+array[array.Length - 1] = c;
 
-//kolejność działań zgodna z zasadami matematyki
-c = a + a * a;
-Console.WriteLine($"{a} + {a} * {a} = {c}");
-c = (a + a) * a;
-Console.WriteLine($"({a} + {a}) * {a} = {c}");
+Console.WriteLine(array[1]);
+Console.WriteLine(array[2]);
+Console.WriteLine(array[0]);
 
-
-Console.WriteLine($"short min:{short.MinValue} max:{short.MaxValue}");
-Console.WriteLine($"int min:{int.MinValue} max:{int.MaxValue}");
-Console.WriteLine($"long min:{long.MinValue} max:{long.MaxValue}");
-
-Console.WriteLine($"float min:{float.MinValue} max:{float.MaxValue}");
-Console.WriteLine($"double min:{double.MinValue} max:{double.MaxValue}");
-Console.WriteLine($"decimal min:{decimal.MinValue} max:{decimal.MaxValue}");
+Console.WriteLine($"Tablica ma rozmiar {array.Length}");
 
 
-Console.WriteLine(5 / 3.3f); //f - float
-Console.WriteLine(5 / 3.3d); //d - double
-Console.WriteLine(5 / 3.3m); //m - decimal
+string[] stringArray = new string[2];
 
-//Math to klasa zawierające funkcje przydatne w obliczeniach matematycznych
-//domyślne zachowanie funkcji zaokrąglającej powoduje zaokrąglanie do wartości parzystej
-Console.WriteLine(Math.Round(2.5));
-Console.WriteLine(Math.Round(3.5));
+stringArray[0] = Console.ReadLine();
+stringArray[1] = Console.ReadLine();
 
-//używamy zaokrąglania znanego ze szkoły
-Console.WriteLine(Math.Round(2.5, MidpointRounding.AwayFromZero));
-Console.WriteLine(Math.Round(3.5, MidpointRounding.AwayFromZero));
+array[0] = int.Parse(stringArray[0]);
+array[1] = int.Parse(stringArray[1]);
 
-
-//formatowanie liczb
-Console.WriteLine($"{9:0#}");
-Console.WriteLine($"{19:0#}");
-
-Console.WriteLine($"{1f/3f:f2}");
-
-
-Console.WriteLine("Podaj pierwszy bok prostokąta:");
-string input1 = Console.ReadLine();
-Console.WriteLine("Podaj drugi bok prostokąta:");
-string input2 = Console.ReadLine();
-
-//parsowanie/konwersja string na int
-//int sideA = int.Parse(input1);
-//int sideB = int.Parse(input2);
-
-//parsowanie/konwersja string na float
-float sideA = float.Parse(input1);
-float sideB = float.Parse(input2);
-
-float area = sideA * sideB;
-
-Console.WriteLine($"Pole powierzchni to {area}");
+Console.WriteLine($"Pole to: {array[0] * array[1]}");
