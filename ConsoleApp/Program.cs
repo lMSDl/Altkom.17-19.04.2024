@@ -1,4 +1,5 @@
 ﻿using ConsoleApp;
+using ConsoleApp.Models;
 using System.IO.Pipes;
 
 Demos demo = new Demos();
@@ -9,52 +10,24 @@ Demos demo = new Demos();
 //demo.If();
 //demo.Switch
 //demo.For();
+//demo.Foreach();
+
+//new - wytwarzamy nowy obiekt (instancję) klasy Person
+Person somePerson = new Person();
+
+Console.WriteLine(somePerson.GetType().Name);
+Console.WriteLine(somePerson.GetType().Namespace);
+Console.WriteLine(somePerson.GetType().FullName);
 
 
-float[] numbers;
-bool exit;
-do
-{
-    exit = true;
-    Console.WriteLine("Wypisz jakieś liczby:");
-    string input = Console.ReadLine();
+//somePerson.name = "Adam";
+somePerson.SetName("Adam");
 
-    string[] splittedInput = input.Split();
 
-    numbers = new float[splittedInput.Length];
+Console.WriteLine(  somePerson.GetName() );
 
-    for (int i = 0; i < splittedInput.Length; i++)
-    {
-        float value;
-        if (float.TryParse(splittedInput[i], out value))
-        {
-            numbers[i] = value;
-        }
-        else
-        {
-            Console.WriteLine("Błędne dane");
-            exit = false;
-            break; //przerywa wykonywanie pętli
-        }
-    }
-} while (!exit);
+somePerson.Age = 50;
+Console.WriteLine(  somePerson.Age);
 
-for (int i = 0; i < numbers.Length; i++)
-{
-    float number = numbers[i];
-    Console.Write($"{number} ");
-}
-Console.WriteLine();
-
-float average = 0;
-
-//foreach zastępuje powyższy sposób iteracji po tablicy
-//foreach - pozwala przejsc po wszystkich elementach tablicy
-foreach (float number in numbers)
-{
-    average = average + number;
-}
-
-average = average / numbers.Length;
-
-Console.WriteLine(average);
+somePerson.LastName = "adamski";
+Console.WriteLine(somePerson.LastName);
