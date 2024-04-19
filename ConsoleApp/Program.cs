@@ -24,10 +24,15 @@ Console.WriteLine(somePerson.GetType().FullName);
 somePerson.SetName("Adam");
 
 
-Console.WriteLine(  somePerson.GetName() );
-
 somePerson.Age = 50;
-Console.WriteLine(  somePerson.Age);
-
 somePerson.LastName = "adamski";
-Console.WriteLine(somePerson.LastName);
+
+Console.WriteLine(somePerson.GenerateInfo());
+
+Person anotherPerson = new Person();
+anotherPerson.SetName("Ewa");
+anotherPerson.Age = 50;
+anotherPerson.LastName = "Ewowska";
+
+//Console.WriteLine($"{anotherPerson.GetName()} {anotherPerson.LastName}");
+Console.WriteLine(  anotherPerson.GenerateInfo() );

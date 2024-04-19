@@ -54,5 +54,13 @@ namespace ConsoleApp.Models
             }
         }
 
+
+        //<modyfikator dostępu> <typ zwracany> <nazwa metody>()
+        public string GenerateInfo()
+        {
+            string info = $"{name} {LastName}, wiek {Age}";
+            return info;
+        }
+
     }
 }
