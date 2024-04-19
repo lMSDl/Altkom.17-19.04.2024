@@ -11,6 +11,31 @@ namespace ConsoleApp.Models
     //class - szablon opisujący zachowania i cechy obiektów (instancji klas), które są wytwarzane na jej podstawie
     public class Person
     {
+        //metoda konstrukcyjna  (konstruktor) - bezparametrowy
+        //brak określenia typu zwracanego i nazwa taka sama jak nazwa klasy
+        //metody konstrukcyjne są potrzebne, aby wstępnie skonfugorować obiekt
+        //jeśli klasa nie ma żadnego zdefiniowanego konstruktora, to konstruktor bezparametrowy jest generowany automatycznie
+        public Person()
+        {
+        }
+
+        //konstruktor parametrowy - służy do zapewnienia klasie wartości początkowych przekazanych jako parametry
+        //jeśli w klasie występuje jakiś konstuktor parametrowy, to konstuktor bezparametrowy nie zostanie automatycznie wygenerowany
+        //chcąc posiadać jednocześnie konstruktor parametrowy i bezparametrowy musimy go jawnie utworzyć
+        public Person(string name, string lastName, int age)
+        {
+            this.name = name; //w przypadku konfliktu nazw pola i parametru stosujemy "this", żeby wskazać która z nazw to pole "tej" klasy
+            this.lastName = lastName;
+            Age = age;
+        }
+
+        public Person(string name, string lastName)
+        {
+            this.name = name;
+            this.lastName = lastName;
+        }
+
+
         //pole klasy (field)
         //private - oznacza dostęp tylko dla elementów danej klasy
         //pola zazwyczaj są prywatne ze względu na hermetyzację, a dostęp realizowany jest przez metody dostępowe (getter i setter)
@@ -45,7 +70,7 @@ namespace ConsoleApp.Models
             //getter dla property
             get
             {
-                return lastName.ToUpper();
+                return lastName?.ToUpper();
             }
             //setter dla property - posiada niejawny parametr o nazwie value
             set
