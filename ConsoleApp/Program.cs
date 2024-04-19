@@ -42,12 +42,19 @@ do
 for (int i = 0; i < numbers.Length; i++)
 {
     float number = numbers[i];
-    Console.Write(number);
+    Console.Write($"{number} ");
 }
+Console.WriteLine();
+
+float average = 0;
 
 //foreach zastępuje powyższy sposób iteracji po tablicy
 //foreach - pozwala przejsc po wszystkich elementach tablicy
 foreach (float number in numbers)
 {
-    Console.Write(number);
+    average = average + number;
 }
+
+average = average / numbers.Length;
+
+Console.WriteLine(average);
