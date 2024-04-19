@@ -40,3 +40,19 @@ Console.WriteLine(anotherPerson.GenerateInfo());*/
 //Console.WriteLine($"{anotherPerson.GetName()} {anotherPerson.LastName}");
 Console.WriteLine(  anotherPerson.GenerateInfo() );
 
+
+
+
+Car car = new Car("Skoda", "Octavia", 2022);
+
+Console.WriteLine(  car.GetInformations() );
+car.Fuel(0.5f);
+Console.WriteLine(car.GetInformations());
+car.Fuel(0.6f);
+Console.WriteLine(car.GetInformations());
+car.Drive(100);
+Console.WriteLine(car.GetInformations());
+car.Drive(623);
+Console.WriteLine(car.GetInformations());
+car.Drive(500);
+Console.WriteLine(car.GetInformations());
